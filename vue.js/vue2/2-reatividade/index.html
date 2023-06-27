@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js" ></script>
+  <title>Curso Vue.JS</title>
+</head>
+<body>
+  <div id="comercio">
+    <p>Bermudas - R$ <span>{{preco}}</span></p>
+    <button @click="total++" >Adcionar</button>
+    <button @click="total--" >Remover</button>
+    <span>{{total}}</span>
+    <p>Total: <span>{{preco * total}}</span></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
