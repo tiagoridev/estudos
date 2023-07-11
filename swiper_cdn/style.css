@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper-hero {
+  width: 100%;
+  /* height: 400px; */
+}
+
+.swiper-hero  img{
+  width: 100%;
+  /* height: 100vh; */
+  object-fit: cover; 
+  display: block;
+}
+
+.btn-prev{
+  color: white;  
+  margin: 0;
+  background-color: green;
+  border-radius: 0px 50px 50px 0px;
+  padding: 2rem;
+  opacity: .5;
+  height: 100px; /*definindo alt do botão*/
+  margin-top: -50px; /*e MT com a metade negativa da altura, ele ficará centralizado*/
+  left: -10px;
+}
+
+.btn-prev:hover{
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+@media (max-width: 700px){
+  .btn-prev{    
+    border-radius: 0px 50px 50px 0px;
+    padding: 1rem;
+    opacity: .5;
+    height: 70px; /*definindo alt do botão*/
+    margin-top: -50px; /*e MT com a metade negativa da altura, ele ficará centralizado*/
+    left: -10px;
+  }
+}
