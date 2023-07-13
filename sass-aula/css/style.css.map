@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAE,CACA,SAAS,CAAE,IAAI,CACf,KAAK,CCFC,KAAK,CDGX,gBAAgB,CCFT,IAAM,CCEf,CAAC,CACC,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,GAAG,CACZ,UAAU,CAAE,UAAU",
+"sources": ["../scss/_main.scss","../scss/_colors.scss","../scss/style.scss"],
+"names": [],
+"file": "style.css"
+}

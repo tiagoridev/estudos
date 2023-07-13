@@ -1,0 +1,50 @@
+@import "_colors";
+@import "_main";
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+section {
+	max-width: 400px + 300;
+	margin: 0 auto;
+}
+
+@mixin mobile{
+  @media (max-width: 600px){
+    @content;
+  }
+}
+
+h1 {
+	color: #84E;
+	font-family: monospace;
+  @include mobile{
+    font-size: 16px;
+  } 
+}
+
+@mixin paragrafo{
+  font-size: 1.2em;
+	line-height: 1.4;
+	max-width: 400px;
+}
+
+p {
+  @include paragrafo;
+}
+
+a {
+	display: block;
+	max-width: 120px;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+	background: #84E;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: monospace;
+}
