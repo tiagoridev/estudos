@@ -1,0 +1,22 @@
+$container: 960;
+$colunas: 12;
+$gutter: 20;
+
+@for $i from 1 through 12{
+  $width: $container / $colunas * $i - $gutter;
+  .grid-#{$i} {
+    width: $width + px;
+  }
+}
+
+// DEFININDO TAMANHO DE FONTS AUTOMATIC
+
+$indice: 1;
+@while $indice <= 6{
+  .type-#{$indice} {
+    font-size: 16 * $indice + px
+}
+$indice: $indice + 1; 
+}
+
+
