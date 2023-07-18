@@ -1,0 +1,1 @@
+Repositório destinado a desenvolver habilidades em SASS. Um processador CSS que otimiza nosso código.

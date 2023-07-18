@@ -1,0 +1,127 @@
+// VARIAVEIS DO GRID
+$cols: 12;
+$gutter: 20px; //Margin p cada lado.
+$large-device: 1200px;
+$medium-device: 760px;
+$small-device: 480px;
+
+// BOX-SIZING
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+// MIXIN DE MEDIA QUERIE
+@mixin responsivo($size){
+  @if $size == large-device{
+    @media screen and (min-width: #{$large-device}){
+      @content
+    }    
+  }
+  @else if $size == medium-device{
+    @media screen and (min-width: #{$medium-device}) and (max-width: #{$large-device - 1}) {
+      @content
+    }  
+  }
+  @else if $size == small-device{
+    @media screen and (max-width: #{$medium-device}) {
+      @content
+    } 
+  }
+}
+
+p{
+  color: blue;
+  @include responsivo(medium-device){
+    color: pink;
+  }
+  @include responsivo(small-device){
+    color: aqua;
+  }
+}
+
+
+// FUNÇÃO DO GRID
+
+@function grid($col, $offset: false){
+  $width: $col / $cols * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @if $offset == offset {
+    $gutter: $gutter / 2;
+    $result: calc(#{$width} + #{$gutter})
+  }
+  @return $result;
+}
+
+// div{
+//   width: grid(6);
+// }
+
+//GERA AS CLASSES DE GRID
+@for $i from 1 through $cols {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
+
+// MIXIN ESTRUTURA DO GRID
+@mixin grid-structure{
+  display: flex;
+  min-height: 1px;
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  @include responsivo(small-device) {
+    width: 100%;
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+[class^="grid-"]{
+  @include grid-structure;
+}
+
+// GERA AS CLASSES DE OFFSET
+@for $i from 1 through $cols { // offset precisa sumir quando vai p mobile
+  .offset-#{$i} {
+    margin-left: grid($i, offset);
+    @extend %offset;
+  }
+}
+
+@include responsivo(small-device){
+  %offset {
+    margin-left: 0px;
+  }
+}
+
+
+// MIXIN DE CLEARFIX
+@mixin clearfix{
+  &::after, &::before {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+
+// MIXIN CONTAINER 
+@mixin container {
+  max-width: $large-device;
+  margin: 0 auto;
+  position: relative;
+  @include responsivo(medium-device) {
+    max-width: $medium-device;
+  }   
+  @include responsivo(small-device) {
+    max-width: $small-device;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  @include clearfix;
+}
+
+.container {
+  @include container;
+}
